@@ -3,8 +3,9 @@
 
 import sqlite3 
 
+
 class RTDatabase():
-    """ Diese Klasse liest die Datenbank aus """
+    """This class reads and writes the SQLite database"""
     def __init__(self):
         pass
         
@@ -20,9 +21,10 @@ class RTDatabase():
         self.DB_cursor.execute("SELECT start_hour, start_min, stop_hour, stop_min FROM time WHERE day = '%s'" %day)
         self.DB_connection.commit()
         for row in self.DB_cursor:
-            self.time={"start_hour":row[0],"start_min":row[1],"stop_hour":row[2], "stop_min":row[3]}
+            time = {"start_hour": row[0], "start_min": row[1],
+                    "stop_hour": row[2], "stop_min": row[3]}
         self.close_database()
-        return self.time
+        return time
     
     def insert_day(self, day, start_hour, start_min, stop_hour, stop_min, stay_off):
         self.open_database()
@@ -32,6 +34,5 @@ class RTDatabase():
         self.DB_connection.commit()
         self.close_database()
 
-        
 
 database = RTDatabase()

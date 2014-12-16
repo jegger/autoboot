@@ -1,7 +1,7 @@
 #!/bin/bash
 #-------------------
-#by RENTOUCH
-#Dominique Burnand
+# by RENTOUCH
+# Dominique Burnand
 #-------------------
 # Script to start Screen everyday from itself.
 
