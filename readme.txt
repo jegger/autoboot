@@ -51,7 +51,6 @@ Installation for AutoBoot
 
 
 
-
 OLD - out of date.....:
 -----------------------
 Autobot ubuntu10.X
