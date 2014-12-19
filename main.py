@@ -7,6 +7,13 @@ from kivy.core.window import Window
 from kivy.graphics import Color, Rectangle
 from kivy.uix.label import Label
 
+import os
+
+# Create local folder
+path = os.path.expanduser("~/apps/autoboot")
+if not os.path.isdir(path):
+    os.mkdir(path)
+
 import slider
 
 

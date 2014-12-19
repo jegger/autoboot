@@ -2,6 +2,13 @@
 # -*- coding: UTF-8 -*-
 
 import sqlite3 
+import os
+import shutil
+
+DB_PATH = os.path.expanduser("~/apps/autoboot/database.sqlite")
+
+# copy paste database to local dir
+shutil.copyfile("data/database.sqlite", DB_PATH)
 
 
 class RTDatabase():

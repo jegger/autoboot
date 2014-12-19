@@ -13,9 +13,14 @@ echo "-----------------------RTWirteShutDown.sh-----------------------"
 LANG=en_US
 
 #Get base directory
-BASEDIR=$(dirname $(readlink -f $0))
-filepath=$BASEDIR"/../data/database.sqlite"
-filepath_shutdown_time=$BASEDIR"/../data/shutdown-time.txt"
+filepath=/home/rentouch/apps/autoboot/database.sqlite
+echo "Path:" $filepath
+if [ ! -f $filepath ]; then
+    echo "File not found!, leaving"
+    exit
+fi
+
+filepath_shutdown_time=/home/rentouch/apps/autoboot/shutdown-time.txt
 
 #Get hour/min for today
 day_today_DB=`date +%a`

@@ -10,8 +10,7 @@ echo "-----------------------RTAutoShutDown.sh-----------------------"
 LANG=en_US
 
 #Get base directory
-BASEDIR=$(dirname $(readlink -f $0))
-filepath_shutdown_time=$BASEDIR"/../data/shutdown-time.txt"
+filepath_shutdown_time=/home/rentouch/apps/autoboot/shutdown-time.txt
 
 #Read shut-down UTC(epoche/unix)
 shutdown_time="$(cat $filepath_shutdown_time)"

@@ -9,9 +9,12 @@ echo "-----------------------RTAutoBoot.sh-----------------------"
 LANG=en_US
 
 #Get base directory
-BASEDIR=$(dirname $(readlink -f $0))
-filepath=$BASEDIR"/../data/database.sqlite"
-#echo "Path:" $filepath
+filepath=/home/rentouch/apps/autoboot/database.sqlite
+echo "Path:" $filepath
+if [ ! -f $filepath ]; then
+    echo "File not found!, leaving"
+    exit
+fi
 
 #get next day that is not stay_off and is not today
 day_next_DB=`date +%a -d '+ 1 day'`
