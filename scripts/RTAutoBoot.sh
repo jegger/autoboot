@@ -6,10 +6,11 @@
 # Script to start Screen everyday from itself.
 
 echo "-----------------------RTAutoBoot.sh-----------------------"
+LANG=en_US
 
 #Get base directory
 BASEDIR=$(dirname $(readlink -f $0))
-filepath=$BASEDIR"/../database.sqlite"
+filepath=$BASEDIR"/../data/database.sqlite"
 #echo "Path:" $filepath
 
 #get next day that is not stay_off and is not today

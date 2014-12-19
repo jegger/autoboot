@@ -7,15 +7,14 @@
 #	
 
 echo "-----------------------RTAutoShutDown.sh-----------------------"
+LANG=en_US
+
 #Get base directory
 BASEDIR=$(dirname $(readlink -f $0))
-filepath_shutdown_time=$BASEDIR"/../shutdown-time.txt"
+filepath_shutdown_time=$BASEDIR"/../data/shutdown-time.txt"
 
 #Read shut-down UTC(epoche/unix)
 shutdown_time="$(cat $filepath_shutdown_time)"
-
-#get filename
-closenow=$BASEDIR"/../../../properties/other/closenow"
 
 #check if the screen shoudn't shut down. (value=0)
 if [ $shutdown_time -eq 0 ]; then
@@ -31,8 +30,7 @@ else
 	echo shutdowntime: $shutdown_time "--" `date -d @$shutdown_time`
 	echo time-now: $epochUTC_now "--" `date -d @$epochUTC_now`
 	if [ $epochUTC_now -eq $shutdown_time ]; then
-		#shutdown screen! - by write "1" into file probazaar/properties/other/closenow
-		echo -n "1" > $closenow
+		shutdown -h now
 	fi
 fi
 

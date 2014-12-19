@@ -1,0 +1,25 @@
+# Install python-crontab
+#cd /usr/local/bin/apps/autoboot/libs/python-crontab-1.7.0
+#python setup.py install
+
+# Create cronjob for scripts
+python <<END
+from crontab import CronTab
+
+# Autoboot checker files
+base = "/usr/local/bin/apps/autoboot/scripts/"
+commands = ("sh %sRTAutoBoot.sh" % base,
+            "sh %sRTWriteShutDown.sh" % base,
+            "sh %sRTAutoShutDown.sh" % base)
+
+tab = CronTab()
+for cmd in commands:
+    tab.remove_all(cmd)
+    job = tab.new(cmd, comment='From rentouch-autoboot App')
+    job.minute.every(1)
+    job.enable()
+tab.write()
+END
+
+# Set clock to UTC
+hwclock --systohc --utc

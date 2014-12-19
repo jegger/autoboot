@@ -10,11 +10,12 @@
 # If the screen should stay on! in the file is wrote a "0"	
 
 echo "-----------------------RTWirteShutDown.sh-----------------------"
+LANG=en_US
 
 #Get base directory
 BASEDIR=$(dirname $(readlink -f $0))
-filepath=$BASEDIR"/../database.sqlite"
-filepath_shutdown_time=$BASEDIR"/../shutdown-time.txt"
+filepath=$BASEDIR"/../data/database.sqlite"
+filepath_shutdown_time=$BASEDIR"/../data/shutdown-time.txt"
 
 #Get hour/min for today
 day_today_DB=`date +%a`

@@ -10,7 +10,7 @@ from kivy.core.window import Window
 from kivy.uix.image import Image
 
 import os
-import RTDatabase_boot
+import database
 
 
 class RTBoundarySlider(Widget):
@@ -65,7 +65,7 @@ class RTBoundarySlider(Widget):
     
     def fill_in(self):
         self.fill = False
-        self.times = RTDatabase_boot.database.read_day(day=self._day)
+        self.times = database.database.read_day(day=self._day)
         self.touch_x = ((self.times["stop_hour"]*60.0) + (self.times["stop_min"]))*700.0/1440+self.x
         self.draw_right()
         self.fill = True
@@ -194,7 +194,7 @@ class RTBoundarySlider(Widget):
     
     def on_touch_up(self, touch, *kwargs):
         if touch.grab_current == self:
-            RTDatabase_boot.database.insert_day(day=self._day,
+            database.database.insert_day(day=self._day,
                                                 start_hour=self.value_h_min,
                                                 start_min=self.value_m_min,
                                                 stop_hour=self.value_h_max,

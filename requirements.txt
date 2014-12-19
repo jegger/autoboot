@@ -1,0 +1,4 @@
+Cython==0.20
+Kivy==1.9.0-dev
+Kivy-Garden==0.1.1
+pygame==1.9.2a0

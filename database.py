@@ -10,7 +10,7 @@ class RTDatabase():
         pass
         
     def open_database(self):
-        self.DB_connection = sqlite3.connect("database.sqlite")
+        self.DB_connection = sqlite3.connect("data/database.sqlite")
         self.DB_cursor = self.DB_connection.cursor()
     
     def close_database(self):

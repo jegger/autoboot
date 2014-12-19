@@ -1,0 +1,15 @@
+# Remove crontab entries
+python <<END
+from crontab import CronTab
+
+# Autoboot checker files
+base = "/usr/local/bin/apps/autoboot/scripts/"
+commands = ("sh %sRTAutoBoot.sh" % base,
+            "sh %sRTWriteShutDown.sh" % base,
+            "sh %sRTAutoShutDown.sh" % base)
+
+tab = CronTab()
+for cmd in commands:
+    tab.remove_all(cmd)
+tab.write()
+END

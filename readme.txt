@@ -1,3 +1,6 @@
+`deb-pkg depends: sqlite3`
+`app_name:Autoboot`
+
 _____________________________
 Copyright 2012 Rentouch
 Developer: Burnand Dominique
@@ -11,7 +14,7 @@ Installation for AutoBoot
 	2. test this step with: sudo hwclock --debug
 
 2. Make sure the system time is in english
-	1. ?
+	1. export LANG=en_US
 	2. Test with: date +%a -d '+ 1 day'
 
 3. Deactivate HPET
