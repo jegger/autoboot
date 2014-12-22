@@ -29,7 +29,7 @@ else
 	echo shutdowntime: $shutdown_time "--" `date -d @$shutdown_time`
 	echo time-now: $epochUTC_now "--" `date -d @$epochUTC_now`
 	if [ $epochUTC_now -eq $shutdown_time ]; then
-		shutdown -h now
+		/sbin/shutdown -h now
 	fi
 fi
 
